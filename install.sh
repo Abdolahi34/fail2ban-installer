@@ -22,9 +22,8 @@ echo " Fail2Ban Auto-Installer"
 echo "-----------------------------------------"
 echo "Select a service to protect with Fail2Ban:"
 echo "1) SSH"
-echo "2) Shadowsocks"
 echo "-----------------------------------------"
-read -p "Enter your choice [1-2]: " CHOICE
+read -p "Enter your choice [1]: " CHOICE
 
 # --- Base installation ---
 install_fail2ban_base
@@ -33,10 +32,6 @@ case "$CHOICE" in
   1)
     source "${MODULE_DIR}/ssh.sh"
     setup_ssh_fail2ban
-    ;;
-  2)
-    source "${MODULE_DIR}/shadowsocks.sh"
-    setup_shadowsocks_fail2ban
     ;;
   *)
     echo "[X] Invalid choice."
